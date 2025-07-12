@@ -48,13 +48,14 @@ spotless {
         target '*.gradle'
         greclipse().configFile("$rootDir/gradle/spotless/formatter.properties")
         endWithNewline()
-        indentWithSpaces(4)
+        leadingTabsToSpaces(4)
     }
 }
 
 tasks.named('spotlessJava') {
     dependsOn downloadJavaLicense, downloadFormatterProperties
     mustRunAfter tasks.named('compileJava')
+    mustRunAfter tasks.named('spotlessGroovy')
     mustRunAfter tasks.named('spotlessGroovyGradle')
 }
 
