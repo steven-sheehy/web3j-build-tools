@@ -55,6 +55,7 @@ spotless {
 tasks.named('spotlessJava') {
     dependsOn downloadJavaLicense, downloadFormatterProperties
     mustRunAfter tasks.named('compileJava')
+    mustRunAfter tasks.named('spotlessGroovy')
     mustRunAfter tasks.named('spotlessGroovyGradle')
 }
 
